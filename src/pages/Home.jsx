@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { SmallLoader } from "../components/Skeleton";
 import { FetchPeopleStarWars } from "../services/apiService";
 import { GrLinkUp } from "react-icons/gr";
-import { HomeTable } from "./HomeTable";
+import { HomeTable } from "../components/HomeTable";
+import { Section } from "../components/Section";
 
 export default function Home() {
   const [people, setPeople] = useState([]);
@@ -35,7 +36,7 @@ export default function Home() {
   };
   return (
     <main className="image">
-      <section className="home">
+      <Section classname={"home"}>
         <h1 className="title">STAR WARS HEROS</h1>
         <HomeTable people={people} />
         {people.length === 0 && loading ? (
@@ -62,7 +63,7 @@ export default function Home() {
             <GrLinkUp size="3em" />
           </button>
         )}
-      </section>
+      </Section>
     </main>
   );
 }

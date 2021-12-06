@@ -7,8 +7,9 @@ import {
 import { SmallLoader } from "../components/Skeleton";
 import { useEffect, useState } from "react";
 import { FilmList } from "../components/FilmsList";
-import { DetailsInfoTable } from "./DetailsInfoTable";
-import { Title } from "./Title";
+import { DetailsInfoTable } from "../components/DetailsInfoTable";
+import { Title } from "../components/Title";
+import { Section } from "../components/Section";
 export default function DetailsInfo() {
   const [information, setInformation] = useState(null);
   const [films, setFilms] = useState(null);
@@ -36,15 +37,15 @@ export default function DetailsInfo() {
 
   return (
     <>
-      {loading && <SmallLoader />}
       {information && (
-        <section className="information">
+        <Section classname={"information"}>
           <Title text={"Details information about"} information={information} />
           <DetailsInfoTable information={information} planet={planet} />
           <Title text={" Films in which starred"} information={information} />
           <FilmList movies={films} />
-        </section>
+        </Section>
       )}
+      {loading && <SmallLoader />}
     </>
   );
 }
